@@ -25,13 +25,17 @@ public class MainActivity extends ListActivity {
     }
 
     public void initPonies() {
-        Util.MyInitPoniesTask task = new Util.MyInitPoniesTask(this, new Runnable() {
-            @Override
-            public void run() {
-                initListView();
-            }
-        });
-        task.execute();
+        if (Util.ponies == null || Util.ponies.size() == 0) {
+            Util.MyInitPoniesTask task = new Util.MyInitPoniesTask(this, new Runnable() {
+                @Override
+                public void run() {
+                    initListView();
+                }
+            });
+            task.execute();
+        } else {
+            initListView();
+        }
     }
 
     public void initUI() {
@@ -64,7 +68,7 @@ public class MainActivity extends ListActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = getLayoutInflater();
             if (convertView == null) {
-                convertView = (ViewGroup) inflater.inflate(R.layout.list_item,parent, false);
+                convertView = (ViewGroup) inflater.inflate(R.layout.list_item, parent, false);
             }
             final Util.Pony pony = (Util.Pony) getItem(position);
             TextView text = (TextView) convertView.findViewById(R.id.list_item_text);
@@ -78,8 +82,7 @@ public class MainActivity extends ListActivity {
                 Drawable d = Drawable.createFromStream(ims, null);
                 // set image to ImageView
                 image.setImageDrawable(d);
-            }
-            catch(IOException ex) {
+            } catch (IOException ex) {
                 //ignore and show default
                 image.setImageResource(R.drawable.ic_launcher);
             }

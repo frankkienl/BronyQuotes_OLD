@@ -14,6 +14,7 @@ Cepheid	        FrankkieNL:  I only know of it thanks to one particular book I o
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.frankkie.bronyquotes"
     android:versionCode="1"
+    android:installLocation="preferExternal"
     android:versionName="1.0" >
 
     <uses-sdk
