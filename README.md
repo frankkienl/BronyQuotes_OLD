@@ -3,6 +3,13 @@ BronyQuotes
 
 Brony Soundboard app
 
+Download and Install
+====================
+
+https://play.google.com/store/apps/details?id=nl.frankkie.bronyquotes
+
+https://www.dropbox.com/s/7dt4vo9icpibpq2/BronyQuotes.apk
+
 
 Screenshots
 ===========
